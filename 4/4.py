@@ -1,11 +1,12 @@
 from collections import defaultdict
 
+
 def solve():
     mx, my, grid = 0, 0, {}
     with open('4.real') as fin:
         for y, line in enumerate(fin.readlines()):
             for x, c in enumerate(line.strip()):
-                grid[(y,x)], mx, my = c, max(mx, x), max(my, y)
+                grid[(y, x)], mx, my = c, max(mx, x), max(my, y)
 
     found = 0
     for sx in range(1 + mx):
@@ -32,12 +33,7 @@ def solve():
                         good = False
                 if good:
                     mas[(sy + dy, sx + dx)] += 1
-    print(len([1 for ((x, y),c) in mas.items() if c >= 2]))
-
-
-
-
-
+    print(len([1 for ((x, y), c) in mas.items() if c >= 2]))
 
 
 if __name__ == '__main__':
